@@ -1,1 +1,75 @@
-<h1>LOGIN COMPONENT</h1>
+<!--
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign In</h5>
+                        <form class="form-signin">
+                            <div class="form-label-group">
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                    required autofocus>
+                                <label for="inputEmail">Email address</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                                    required>
+                                <label for="inputPassword">Password</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Remember password</label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign
+                                in</button>
+                            <hr class="my-4">
+                            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
+                                    class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+-->
+
+
+<!-- Barra Navbar -->
+<nav class="navbar justify-content-between" style="background: #095dac">
+    <a class="navbar-brand" style="color: #ffffff">
+        <h5>Login | SalaJuegos</h5>
+    </a>
+</nav>
+
+<!-- Login Card -->
+<div class="content mr-4 ml-4" style="margin-top: 70px">
+    <div class="container card" style=" max-width: 30rem; background: #ffffff"><br><br>
+        <div class="text-center">
+            <h2><strong>Inicio de Sesión</strong></h2>
+        </div><br>
+        <div class="container" style="max-width: 25rem;">
+            <form id="loginForm" class="needs-validation" novalidate="">
+                <div>
+                    <input id="usuario" class="form-control" placeholder="Usuario" type="text" required #inputUsuario />
+                    <div class="invalid-feedback">Debe ingresar su usuario</div>
+                </div><br>
+                <div>
+                    <input id="contraseña" class="form-control" placeholder="Contraseña" type="password" required
+                        #inputContraseña />
+                    <div class="invalid-feedback">Debe ingresar su contraseña</div>
+                </div><br>
+            </form>
+            <button id="btnSubmit" type="submit" class="container btn btn-block "
+                style="max-width: 30rem; background: rgb(19, 189, 41); color: #ffffff" (click)="login()">Iniciar
+                sesión</button>
+            <hr class="my-4">
+            <button class="btn btn-block btn-facebook" style="max-width: 30rem">
+                Inicio de Sesión con Facebook
+            </button><br><br><br><br>
+        </div>
+    </div>
+</div>
