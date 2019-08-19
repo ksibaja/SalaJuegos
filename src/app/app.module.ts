@@ -5,11 +5,13 @@ import { ROUTES } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { SalaComponent } from './sala/sala.component';
   
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SalaComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(ROUTES)

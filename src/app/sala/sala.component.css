@@ -1,0 +1,19 @@
+/* Styles navbar */
+.navbar-bg {
+    background: #095dac
+}
+
+.navbar-txt-color{
+    color: #ffffff
+}
+
+/* Styles button */
+.btn-play {
+    max-width: 20rem; 
+    background: rgb(19, 189, 41); 
+    color: #ffffff
+}
+
+.btn-out {
+    color: rgb(255, 255, 255)
+}

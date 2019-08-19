@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { SalaComponent } from './sala/sala.component';
 
 export const ROUTES: Routes = [
   {
@@ -10,6 +11,6 @@ export const ROUTES: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: '**', redirectTo: 'login'
-  }
+    path: 'sala', component: SalaComponent
+  },
 ];
