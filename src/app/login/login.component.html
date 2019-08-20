@@ -1,1 +1,35 @@
-<h1>LOGIN COMPONENT</h1>
+
+<!-- Navbar -->
+<nav class="navbar navbar-bg justify-content-between">
+    <a class="navbar-brand">
+        <h5 class="navbar-txt-color">Login | SalaJuegos</h5>
+    </a>
+</nav>
+
+<!-- Login Card -->
+<div class="content mr-4 ml-4 margin-card">
+    <div class="container card login-card"><br><br>
+        <div class="text-center">
+            <h2><strong>Inicio de Sesión</strong></h2>
+        </div><br>
+        <div class="container container-card">
+            <form class="needs-validation">
+                <div>
+                    <input id="usuario" class="form-control" placeholder="Usuario" type="text" required #inputUsuario />
+                    <div class="invalid-feedback">Debe ingresar su usuario</div>
+                </div><br>
+                <div>
+                    <input id="contraseña" class="form-control" placeholder="Contraseña" type="password" required
+                        #inputContraseña />
+                    <div class="invalid-feedback">Debe ingresar su contraseña</div>
+                </div><br>
+            </form>
+            <button class="btn btn-lg btn-primary btn-block" (click)="login()">Iniciar
+                sesión</button>
+            <hr class="my-4">
+            <button class="btn btn-lg btn-facebook btn-block" (click)="submitLogin()">
+                Iniciar con Facebook
+            </button><br><br><br>
+        </div>
+    </div>
+</div>
