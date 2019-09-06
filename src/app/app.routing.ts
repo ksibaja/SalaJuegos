@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SalaComponent } from './sala/sala.component';
+import { LoginComponent } from './components/login/login.component';
+import { SalaComponent } from './components/sala/sala.component';
+import { NLineaComponent } from './components/n-linea/n-linea.component';
+import { MemoriaComponent } from './components/memoria/memoria.component';
 
 export const ROUTES: Routes = [
   {
@@ -12,5 +13,11 @@ export const ROUTES: Routes = [
   },
   {
     path: 'sala', component: SalaComponent
+  },
+  {
+    path: 'n-linea', component: NLineaComponent
+  },
+  {
+    path: 'memoria', component: MemoriaComponent
   },
 ];

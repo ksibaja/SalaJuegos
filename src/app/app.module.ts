@@ -6,14 +6,12 @@ import { ROUTES } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SalaComponent } from './sala/sala.component';
-import { MemoriaComponent } from './memoria/memoria.component';
   
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SalaComponent,
-    MemoriaComponent
+    SalaComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(ROUTES)

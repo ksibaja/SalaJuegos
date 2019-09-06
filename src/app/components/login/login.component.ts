@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     (window as any).fbAsyncInit = function () {
       FB.init({
-        appId: '394951114363257',
+        appId: '384530158912115',
         cookie: true,
         xfbml: true,
         version: 'v3.1'
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
         //login success
         //login success code here
         //redirect to home page
+        window.location.href = "/sala";
       }
       else {
         console.log('User login failed');
@@ -49,6 +50,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    window.location.href = "http://localhost:4200/sala";
+    window.location.href = "/sala";
   }
 }
