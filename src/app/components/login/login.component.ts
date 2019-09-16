@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { async } from '@angular/core/testing';
 
 declare var FB: any;
 
@@ -14,14 +15,16 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) { }
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private ngZone: NgZone) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
-
     (window as any).fbAsyncInit = function () {
       FB.init({
         appId: '384530158912115',
@@ -31,7 +34,6 @@ export class LoginComponent implements OnInit {
       });
       FB.AppEvents.logPageView();
     };
-
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) { return; }
@@ -40,27 +42,23 @@ export class LoginComponent implements OnInit {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   }
-
   get f() { return this.loginForm.controls; }
+
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
-    this.router.navigate(['/sala']);
+    this.ngZone.run(async () => this.router.navigate(['/sala'])).then();
   }
 
   submitLogin() {
     console.log("submit login to facebook");
-    // FB.login();
     FB.login((response) => {
       console.log('submitLogin', response);
       if (response.authResponse) {
-        //login success
-        //login success code here
-        //redirect to home page
-        this.router.navigate(['/sala']);
+        this.ngZone.run(async () => this.router.navigate(['/sala'])).then();
       }
       else {
         console.log('User login failed');

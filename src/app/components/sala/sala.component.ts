@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-sala',
@@ -24,7 +25,7 @@ export class SalaComponent implements OnInit {
     { cantFichas: ["3", "4", "5", "6"] }
   ]
 
-  constructor(public formBuilder: FormBuilder, private router: Router) {
+  constructor(public formBuilder: FormBuilder, private router: Router, private ngZone: NgZone) {
     this.gameForm = this.formBuilder.group({
       gameControl: ['N-Linea']
     });
@@ -47,9 +48,9 @@ export class SalaComponent implements OnInit {
     //alert("NO DISPONIBLE EN ESTE MOMENTO!!!");
     console.log(this.gameForm.controls['gameControl'].value)
     if (this.gameForm.controls['gameControl'].value == 'Memoria') {
-      this.router.navigate(['memoria']);
+      this.ngZone.run(async () => this.router.navigate(['memoria'])).then();
     } else {
-      this.router.navigate(['/n-linea']);
+      this.ngZone.run(async () => this.router.navigate(['/n-linea'])).then();
     }
   }
 
@@ -62,7 +63,7 @@ export class SalaComponent implements OnInit {
   }
 
   logOut() {
-    this.router.navigate(['/login']);
+    this.ngZone.run(async () => this.router.navigate(['/login'])).then();
     //window.location.href = "/login";
   }
 
