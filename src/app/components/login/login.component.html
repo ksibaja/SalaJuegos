@@ -1,4 +1,3 @@
-
 <!-- Navbar -->
 <nav class="navbar navbar-bg justify-content-between">
     <a class="navbar-brand">
@@ -13,19 +12,28 @@
             <h2><strong>Inicio de Sesión</strong></h2>
         </div><br>
         <div class="container container-card">
-            <form class="needs-validation">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div>
-                    <input id="usuario" class="form-control" placeholder="Usuario" type="text" required #inputUsuario />
-                    <div class="invalid-feedback">Debe ingresar su usuario</div>
+                    <input class="form-control" formControlName="email" placeholder="Usuario" type="email"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Debe ingresar su email</div>
+                        <div *ngIf="f.email.errors.email">Debe ser una email válido</div>
+                    </div>
                 </div><br>
                 <div>
-                    <input id="contraseña" class="form-control" placeholder="Contraseña" type="password" required
-                        #inputContraseña />
-                    <div class="invalid-feedback">Debe ingresar su contraseña</div>
+                    <input class="form-control" formControlName="password" placeholder="Contraseña" type="password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Debe ingresar su contraseña</div>
+                        <div *ngIf="f.password.errors.minlength">Contraseña debe tener minimo 6 carácteres</div>
+                    </div>
                 </div><br>
+                <div>
+                    <button class="btn btn-lg btn-primary btn-block">
+                        Iniciar sesión</button>
+                </div>
             </form>
-            <button class="btn btn-lg btn-primary btn-block" (click)="login()" >Iniciar
-                sesión</button>
             <hr class="my-4">
             <button class="btn btn-lg btn-facebook btn-block" (click)="submitLogin()">
                 Iniciar con Facebook

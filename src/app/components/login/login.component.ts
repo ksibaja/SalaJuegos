@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 declare var FB: any;
 
@@ -9,9 +11,17 @@ declare var FB: any;
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm: FormGroup;
+  submitted = false;
+
+  constructor(private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+
     (window as any).fbAsyncInit = function () {
       FB.init({
         appId: '384530158912115',
@@ -31,6 +41,16 @@ export class LoginComponent implements OnInit {
     }(document, 'script', 'facebook-jssdk'));
   }
 
+  get f() { return this.loginForm.controls; }
+  onSubmit() {
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.router.navigate(['/sala']);
+  }
+
   submitLogin() {
     console.log("submit login to facebook");
     // FB.login();
@@ -40,16 +60,11 @@ export class LoginComponent implements OnInit {
         //login success
         //login success code here
         //redirect to home page
-        window.location.href = "/sala";
+        this.router.navigate(['/sala']);
       }
       else {
         console.log('User login failed');
       }
     });
-
-  }
-
-  login() {
-    window.location.href = "/sala";
   }
 }
