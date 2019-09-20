@@ -6,7 +6,7 @@
 <!------------------------------------>
 <div class="row clearfix " >
   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" *ngFor="let carta of cartas; index as i">
-    <div class="tablero" >
+    <div class="tablero onCard" >
       <img class="img-size" src="{{carta.volteada ? getImage(carta.imagen) : imagenCarta}}" (click)="selectedCard(i)">
     </div>
   </div>

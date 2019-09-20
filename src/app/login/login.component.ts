@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import Swal from 'sweetalert2';
 declare var FB: any;
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,12 +8,15 @@ declare var FB: any;
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+
+  @ViewChild('Usuario',{static:false}) Usuario:ElementRef;
+  @ViewChild('Contraseña',{static:false}) Contraseña:ElementRef;
+
 
   ngOnInit() {
     (window as any).fbAsyncInit = function () {
       FB.init({
-        appId: '394951114363257',
+        appId: '384530158912115',
         cookie: true,
         xfbml: true,
         version: 'v3.1'
@@ -37,6 +39,7 @@ export class LoginComponent implements OnInit {
     FB.login((response) => {
       console.log('submitLogin', response);
       if (response.authResponse) {
+        this.login();
         //login success
         //login success code here
         //redirect to home page
@@ -48,7 +51,66 @@ export class LoginComponent implements OnInit {
 
   }
 
-  login() {
-    window.location.href = "http://localhost:4200/sala";
+  async login() {
+
+    if(this.isSpacesEmpty()){
+
+
+    } else {
+      if(await this.verifyUser()) {
+        window.location.href = "http://localhost:4200/memoria";
+      }
+
+    }
   }
+  isSpacesEmpty() {
+    if (this.Usuario.nativeElement.value == "") {
+      Swal.fire({
+        type: 'error',
+        title: 'Usuario Vacío.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return true;
+    } else if (this.Contraseña.nativeElement.value == "") {
+      Swal.fire({
+        type: 'error',
+        title: 'Contraseña Vacía.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return true;
+    }
+    return false;
+  }
+  async verifyUser() {
+    let user = this.Usuario.nativeElement.value;
+    let password = this.Contraseña.nativeElement.value;
+
+    //aqui va endpoint de inicio de sesion
+
+    if (true) {
+      await Swal.fire({
+        type: 'success',
+        title: 'Usuario Registrado',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return true;
+    } else {
+      await Swal.fire({
+        type: 'error',
+        title: 'Usuario o contraseña no válidos',
+        showConfirmButton: false,
+        timer: 1500,
+      })
+      return false;
+
+    }
+  }
+
+  async delay(ms: number) {
+    await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+  }
+
 }

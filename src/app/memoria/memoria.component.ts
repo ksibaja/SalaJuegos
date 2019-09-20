@@ -7,7 +7,7 @@ import {__await} from 'tslib';
   styleUrls: ['./memoria.component.css']
 })
 export class MemoriaComponent implements OnInit {
-  imagenCarta = "/assets/Images/carta.png";
+  imagenCarta = '/assets/Images/carta.png';
   cartas=[
     {imagen:"León",volteada:false,pareja:false}, {imagen:"Pajaro",volteada:false,pareja:false},
     {imagen:"Pajaro",volteada:false,pareja:false}, {imagen:"León",volteada:false,pareja:false},
@@ -32,7 +32,7 @@ export class MemoriaComponent implements OnInit {
   ngOnInit() {
   }
   async selectedCard(i) {
-    if(this.cartas[i].volteada){//Volver la carta boca abajo
+    if(this.cartas[i].volteada){ // Volver la carta boca abajo
       if(!this.cartas[i].pareja) {
         this.cartas[i].volteada = false;
         this.indexAnterior = 999;
@@ -43,7 +43,7 @@ export class MemoriaComponent implements OnInit {
 
       if(this.indexAnterior!=999){
         if(this.cartas[this.indexAnterior].imagen==this.cartas[i].imagen){
-          console.log("iguales")
+          console.log("iguales");
           this.cartas[i].pareja = true;
           this.cartas[this.indexAnterior].pareja = true;
           this.indexAnterior = 999;
