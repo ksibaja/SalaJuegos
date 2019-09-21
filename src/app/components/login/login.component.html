@@ -1,0 +1,43 @@
+<!-- Navbar -->
+<nav class="navbar navbar-bg justify-content-between">
+    <a class="navbar-brand">
+        <h5 class="navbar-txt-color">Login | SalaJuegos</h5>
+    </a>
+</nav>
+
+<!-- Login Card -->
+<div class="content mr-4 ml-4 mb-4 mt-4">
+    <div class="container card login-card">
+        <div class="text-center mt-4">
+            <h2><strong>Inicio de Sesión</strong></h2>
+        </div><br>
+        <div class="container container-card">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <input class="form-control" formControlName="email" placeholder="Usuario" type="email"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Debe ingresar su email</div>
+                        <div *ngIf="f.email.errors.email">Debe ser una email válido</div>
+                    </div>
+                </div><br>
+                <div>
+                    <input class="form-control" formControlName="password" placeholder="Contraseña" type="password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Debe ingresar su contraseña</div>
+                        <div *ngIf="f.password.errors.minlength">Contraseña debe tener minimo 6 carácteres</div>
+                    </div>
+                </div><br>
+                <div>
+                    <button class="btn btn-lg btn-primary btn-block">
+                        Iniciar sesión</button>
+                </div>
+            </form>
+            <hr class="my-4">
+            <button class="btn btn-lg btn-facebook btn-block" (click)="submitLogin()">
+                Iniciar con Facebook
+            </button><br><br>
+        </div>
+    </div>
+</div>

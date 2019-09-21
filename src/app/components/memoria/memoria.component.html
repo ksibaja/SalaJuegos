@@ -1,0 +1,16 @@
+<nav class="navbar navbar-bg justify-content-between">
+    <a class="navbar-brand">
+        <h5 class="navbar-txt-color">Memoria | <a style="color: white" routerLink="/sala">SalaJuegos</a>
+        </h5>
+    </a>
+</nav>
+
+<!------------------------------------>
+<div class="row clearfix container ml-2 mr-2 width">
+    <div class="" *ngFor="let carta of cartas; index as i">
+        <div class="mt-2 mr-2 tablero">
+            <img class="img-size" src="{{carta.volteada ? getImage(carta.imagen) : imagenCarta}}"
+                (click)="selectedCard(i)">
+        </div>
+    </div>
+</div>

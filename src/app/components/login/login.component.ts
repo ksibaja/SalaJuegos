@@ -1,6 +1,11 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild,NgZone} from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { async } from '@angular/core/testing';
+
 import Swal from 'sweetalert2';
 declare var FB: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,8 +17,19 @@ export class LoginComponent implements OnInit {
   @ViewChild('Usuario',{static:false}) Usuario:ElementRef;
   @ViewChild('Contraseña',{static:false}) Contraseña:ElementRef;
 
+  loginForm: FormGroup;
+  submitted = false;
+
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private ngZone: NgZone) { }
 
   ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
     (window as any).fbAsyncInit = function () {
       FB.init({
         appId: '384530158912115',
@@ -32,6 +48,16 @@ export class LoginComponent implements OnInit {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   }
+  get f() { return this.loginForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.ngZone.run(async () => this.router.navigate(['/sala'])).then();
+  }
 
   submitLogin() {
     console.log("submit login to facebook");
@@ -39,10 +65,7 @@ export class LoginComponent implements OnInit {
     FB.login((response) => {
       console.log('submitLogin', response);
       if (response.authResponse) {
-        this.login();
-        //login success
-        //login success code here
-        //redirect to home page
+        this.ngZone.run(async () => this.router.navigate(['/sala'])).then();
       }
       else {
         console.log('User login failed');

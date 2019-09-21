@@ -1,0 +1,35 @@
+.img-size{
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  border-width:2px;
+}
+IMG:hover{
+  top:-9px;
+  position: relative;
+}
+  
+.tablero{
+  padding: 5px;
+  clear:both;
+  text-align: center;
+}
+
+.width {
+  width: 97%;
+  max-width: 97%;
+}
+
+  /* Styles navbar */
+.navbar-bg {
+  background: #095dac
+}
+
+.navbar-txt-color{
+  color: #ffffff
+}
+
+/* Styles button */
+.btn-out {
+  color: rgb(255, 255, 255)
+}
