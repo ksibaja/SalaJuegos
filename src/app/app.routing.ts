@@ -6,7 +6,7 @@ import { MemoriaComponent } from './components/memoria/memoria.component';
 
 export const ROUTES: Routes = [
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
+    path: '', redirectTo: 'memoria', pathMatch: 'full'
   },
   {
     path: 'login', component: LoginComponent

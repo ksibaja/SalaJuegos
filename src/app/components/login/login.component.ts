@@ -50,13 +50,15 @@ export class LoginComponent implements OnInit {
   }
   get f() { return this.loginForm.controls; }
 
-  onSubmit() {
+  async onSubmit() {
     this.submitted = true;
+    await this.login();
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
-    this.ngZone.run(async () => this.router.navigate(['/sala'])).then();
+
+
   }
 
   submitLogin() {
@@ -76,33 +78,22 @@ export class LoginComponent implements OnInit {
 
   async login() {
 
-    if(this.isSpacesEmpty()){
+    if(await this.isSpacesEmpty()){
 
 
     } else {
       if(await this.verifyUser()) {
-        window.location.href = "http://localhost:4200/memoria";
+        this.ngZone.run(async () => this.router.navigate(['/sala'])).then();
       }
 
     }
   }
-  isSpacesEmpty() {
+  async isSpacesEmpty() {
     if (this.Usuario.nativeElement.value == "") {
-      Swal.fire({
-        type: 'error',
-        title: 'Usuario Vacío.',
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      await this.cardNotify('error','Usuario Vacío.', false);
       return true;
     } else if (this.Contraseña.nativeElement.value == "") {
-      Swal.fire({
-        type: 'error',
-        title: 'Contraseña Vacía.',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      return true;
+      await this.cardNotify('error','Contraseña Vacía.',false);
     }
     return false;
   }
@@ -113,27 +104,25 @@ export class LoginComponent implements OnInit {
     //aqui va endpoint de inicio de sesion
 
     if (true) {
-      await Swal.fire({
-        type: 'success',
-        title: 'Usuario Registrado',
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      await this.cardNotify('success','Usuario Registrado',false);
       return true;
-    } else {
-      await Swal.fire({
-        type: 'error',
-        title: 'Usuario o contraseña no válidos',
-        showConfirmButton: false,
-        timer: 1500,
-      })
-      return false;
-
     }
+    // else {
+    //   await this.cardNotify('error','Usuario o contraseña no válidos',false);
+    //   return false;
+    //
+    // }
   }
 
   async delay(ms: number) {
     await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
   }
-
+  async cardNotify(icono, mensaje, btnConfirmar){
+    await Swal.fire({
+      type: icono,
+      title: mensaje,
+      showConfirmButton: btnConfirmar,
+      timer: 1500,
+    });
+  }
 }
