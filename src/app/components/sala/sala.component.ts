@@ -81,10 +81,15 @@ export class SalaComponent implements OnInit {
   dataModalMemory() {
     console.log(this.memoryForm.controls['cantControl'].value);
     console.log(this.memoryForm.controls['tamControl'].value);
-    if (this.memoryForm.controls['modoControl'].value == "1") {
+    console.log(this.memoryForm.controls['modoControl'].value);
+    if (this.memoryForm.controls['modoControl'].value == "1v1") {
       console.log("1v1");
-    } else {
+    } else if(this.memoryForm.controls['modoControl'].value == "Fácil") {
       console.log(this.memoryForm.controls['modoControl'].value);
+    } else if(this.memoryForm.controls['modoControl'].value == "Medio") {
+      console.log(this.memoryForm.controls['modoControl'].value);
+    }else if(this.memoryForm.controls['modoControl'].value == "Difícil") {
+        console.log(this.memoryForm.controls['modoControl'].value);
     }
   }
 

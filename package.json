@@ -25,6 +25,7 @@
     "bootstrap-social": "^5.1.1",
     "firebase": "^6.6.1",
     "jquery": "^3.4.1",
+    "material-design-icons": "^3.0.1",
     "ngx-spinner": "^8.0.3",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { __await } from 'tslib';
 
 @Component({
@@ -7,6 +7,8 @@ import { __await } from 'tslib';
   styleUrls: ['./memoria.component.css']
 })
 export class MemoriaComponent implements OnInit {
+  @ViewChild('Mensaje',{static:false}) Mensaje:ElementRef;
+
   imagenCarta = "/assets/Images/carta.png";
   cartas = [
     { imagen: "León", volteada: false, pareja: false }, { imagen: "Pajaro", volteada: false, pareja: false },
@@ -24,12 +26,20 @@ export class MemoriaComponent implements OnInit {
     { imagen: "León", volteada: false, pareja: false }, { imagen: "Pajaro", volteada: false, pareja: false },
     { imagen: "Pajaro", volteada: false, pareja: false }, { imagen: "León", volteada: false, pareja: false },
     { imagen: "Lobo", volteada: false, pareja: false }, { imagen: "Vaca", volteada: false, pareja: false },
+    { imagen: "León", volteada: false, pareja: false }, { imagen: "Pajaro", volteada: false, pareja: false },
+    { imagen: "Pajaro", volteada: false, pareja: false }, { imagen: "León", volteada: false, pareja: false },
+    { imagen: "Lobo", volteada: false, pareja: false }, { imagen: "Vaca", volteada: false, pareja: false },
 
   ];
   indexAnterior = 999;
+
+  //configuracion
+  tamano="5x5";
+  modoJuego="Fácil";
   constructor() { }
 
   ngOnInit() {
+
   }
   async selectedCard(i) {
     if (this.cartas[i].volteada) {//Volver la carta boca abajo
@@ -70,5 +80,13 @@ export class MemoriaComponent implements OnInit {
   }
   async delay(ms: number) {
     await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => console.log("fired"));
+  }
+  sendMessage(){
+    let mensaje = this.Mensaje.nativeElement.value;
+
+    //envia el mensaje
+    this.Mensaje.nativeElement.value="";
+
+
   }
 }

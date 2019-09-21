@@ -6,10 +6,49 @@
 </nav>
 
 <!------------------------------------>
-<div class="row clearfix " >
-  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" *ngFor="let carta of cartas; index as i">
-    <div class="tablero onCard" >
-      <img class="img-size" src="{{carta.volteada ? getImage(carta.imagen) : imagenCarta}}" (click)="selectedCard(i)">
+<div class="row clearfix"  >
+ <!--JUEGO DE MEMORIA-->
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    <div class="letraCentrada">
+      <h1><strong>Tablero</strong></h1>
+    </div>
+    <div class="container tablero" >
+      <div class="container">
+        <div class="row clearfix">
+          <div *ngFor="let carta of cartas; index as i"><!--6x6-->
+            <div [ngClass]="{'spacesInCard1':this.tamano == '4x4','spacesInCard2':this.tamano == '5x5','spacesInCard3':this.tamano == '6x6'}" >
+              <img [ngClass]="{'img-size1':this.tamano == '4x4','img-size2':this.tamano == '5x5','img-size3':this.tamano == '6x6'}" src="{{carta.volteada ? getImage(carta.imagen) : imagenCarta}}" (click)="selectedCard(i)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--CHAT-->
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <div class="letraCentrada">
+      <h1><strong>CHAT VIRTUAL</strong></h1>
+    </div>
+    <div class="container sizeChat">
+      <div class="container playersOnline">
+
+      </div>
+      <div class="container sizePanelChat">
+
+      </div>
+      <div class="container">
+        <div class="row clearfix"  >
+          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+            <input class="form-control"  placeholder="Escriba su mensaje..." type="text" #Mensaje>
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+            <button class="btn waves-effect waves-light " type="submit" (click)="sendMessage()">
+              <i class="material-icons sendMessage">send</i>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
