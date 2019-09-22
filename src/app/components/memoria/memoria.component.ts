@@ -12,29 +12,29 @@ export class MemoriaComponent implements OnInit {
   imagenCarta = "/assets/Images/carta.png";
   cartas = [
     { imagen: "León", volteada: false, pareja: false }, { imagen: "Pajaro", volteada: false, pareja: false },
-    { imagen: "Pajaro", volteada: false, pareja: false }, { imagen: "León", volteada: false, pareja: false },
     { imagen: "Lobo", volteada: false, pareja: false }, { imagen: "Vaca", volteada: false, pareja: false },
-    { imagen: "Jirafa", volteada: false, pareja: false }, { imagen: "Lobo", volteada: false, pareja: false },
-    { imagen: "Perro", volteada: false, pareja: false }, { imagen: "Jirafa", volteada: false, pareja: false },
-    { imagen: "Perro", volteada: false, pareja: false }, { imagen: "Vaca", volteada: false, pareja: false },
-    { imagen: "León", volteada: false, pareja: false }, { imagen: "Pajaro", volteada: false, pareja: false },
-    { imagen: "Pajaro", volteada: false, pareja: false }, { imagen: "León", volteada: false, pareja: false },
-    { imagen: "Lobo", volteada: false, pareja: false }, { imagen: "Vaca", volteada: false, pareja: false },
-    { imagen: "Jirafa", volteada: false, pareja: false }, { imagen: "Lobo", volteada: false, pareja: false },
-    { imagen: "Perro", volteada: false, pareja: false }, { imagen: "Jirafa", volteada: false, pareja: false },
-    { imagen: "Perro", volteada: false, pareja: false }, { imagen: "Vaca", volteada: false, pareja: false },
-    { imagen: "León", volteada: false, pareja: false }, { imagen: "Pajaro", volteada: false, pareja: false },
-    { imagen: "Pajaro", volteada: false, pareja: false }, { imagen: "León", volteada: false, pareja: false },
-    { imagen: "Lobo", volteada: false, pareja: false }, { imagen: "Vaca", volteada: false, pareja: false },
-    { imagen: "León", volteada: false, pareja: false }, { imagen: "Pajaro", volteada: false, pareja: false },
-    { imagen: "Pajaro", volteada: false, pareja: false }, { imagen: "León", volteada: false, pareja: false },
-    { imagen: "Lobo", volteada: false, pareja: false }, { imagen: "Vaca", volteada: false, pareja: false },
+    { imagen: "Jirafa", volteada: false, pareja: false }, { imagen: "Caballo", volteada: false, pareja: false },
+    { imagen: "Canguro", volteada: false, pareja: false },{ imagen: "Conejo", volteada: false, pareja: false },
+    { imagen: "Gato", volteada: false, pareja: false },{ imagen: "Gorila", volteada: false, pareja: false },
+    { imagen: "Hamster", volteada: false, pareja: false },{ imagen: "Iguana", volteada: false, pareja: false },
+    { imagen: "Lince", volteada: false, pareja: false },{ imagen: "Oso", volteada: false, pareja: false },
+    { imagen: "Panda", volteada: false, pareja: false },{ imagen: "Suricata", volteada: false, pareja: false },
+    { imagen: "Triceratop", volteada: false, pareja: false },{ imagen: "Perro", volteada: false, pareja: false },
 
+    { imagen: "León", volteada: false, pareja: false }, { imagen: "Pajaro", volteada: false, pareja: false },
+    { imagen: "Lobo", volteada: false, pareja: false }, { imagen: "Vaca", volteada: false, pareja: false },
+    { imagen: "Jirafa", volteada: false, pareja: false }, { imagen: "Caballo", volteada: false, pareja: false },
+    { imagen: "Canguro", volteada: false, pareja: false },{ imagen: "Conejo", volteada: false, pareja: false },
+    { imagen: "Gato", volteada: false, pareja: false },{ imagen: "Gorila", volteada: false, pareja: false },
+    { imagen: "Hamster", volteada: false, pareja: false },{ imagen: "Iguana", volteada: false, pareja: false },
+    { imagen: "Lince", volteada: false, pareja: false },{ imagen: "Oso", volteada: false, pareja: false },
+    { imagen: "Panda", volteada: false, pareja: false },{ imagen: "Suricata", volteada: false, pareja: false },
+    { imagen: "Triceratop", volteada: false, pareja: false },{ imagen: "Perro", volteada: false, pareja: false },
   ];
   indexAnterior = 999;
 
   //configuracion
-  tamano="5x5";
+  tamano="6x6";
   modoJuego="Fácil";
   constructor() { }
 

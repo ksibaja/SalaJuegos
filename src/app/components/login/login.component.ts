@@ -94,8 +94,10 @@ export class LoginComponent implements OnInit {
       return true;
     } else if (this.Contraseña.nativeElement.value == "") {
       await this.cardNotify('error','Contraseña Vacía.',false);
+      return true;
+    }else {
+      return false;
     }
-    return false;
   }
   async verifyUser() {
     let user = this.Usuario.nativeElement.value;
@@ -107,11 +109,11 @@ export class LoginComponent implements OnInit {
       await this.cardNotify('success','Usuario Registrado',false);
       return true;
     }
-    // else {
-    //   await this.cardNotify('error','Usuario o contraseña no válidos',false);
-    //   return false;
-    //
-    // }
+    else {
+      await this.cardNotify('error','Usuario o contraseña no válidos',false);
+      return false;
+
+    }
   }
 
   async delay(ms: number) {

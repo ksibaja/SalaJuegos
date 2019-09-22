@@ -6,11 +6,11 @@
 </nav>
 
 <!------------------------------------>
-<div class="row clearfix"  >
+<div class="row clearfix" style="background: darkgray"  >
  <!--JUEGO DE MEMORIA-->
   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
     <div class="letraCentrada">
-      <h1><strong>Tablero</strong></h1>
+      <h1 ><strong class="marco">Tablero</strong></h1>
     </div>
     <div class="container tablero" >
       <div class="container">
@@ -28,7 +28,7 @@
   <!--CHAT-->
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
     <div class="letraCentrada">
-      <h1><strong>CHAT VIRTUAL</strong></h1>
+      <h1><strong class="marco">Chat Virtual</strong></h1>
     </div>
     <div class="container sizeChat">
       <div class="container playersOnline">
@@ -40,7 +40,7 @@
       <div class="container">
         <div class="row clearfix"  >
           <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-            <input class="form-control"  placeholder="Escriba su mensaje..." type="text" #Mensaje>
+            <input class="form-control"  placeholder="Escriba su mensaje..." type="text" style="border-color:black;border-style: solid" #Mensaje>
           </div>
           <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
             <button class="btn waves-effect waves-light " type="submit" (click)="sendMessage()">
