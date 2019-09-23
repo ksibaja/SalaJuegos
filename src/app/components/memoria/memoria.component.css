@@ -16,18 +16,18 @@
   border-style: solid;
   border-width:2px;
 }
-img{
-  transition:all 0.5s linear;
+.imgEffect{
+  transition: 1s linear;
   transform-style: preserve-3d;
 }
 
-IMG:hover{
+.imgEffect:hover{
   position: relative;
   top:-5px;
 }
-IMG:active{
-  position: relative;
+.imgEffect:active{
   transform: rotateY(180deg);
+
 }
 .letraCentrada{
   text-align: center;
@@ -52,10 +52,8 @@ IMG:active{
   height: 380px;
 }
 .playersOnline{
+  padding-top: 20px;
   background-color: white;
-  border-bottom-color: black;
-  border-bottom-style: double;
-  border-bottom-width: 5px;
   height: 180px;
 }
 .spacesInCard1{
@@ -100,10 +98,25 @@ IMG:active{
 }
 .sendMessage{
   color: dodgerblue;
-  color: dodgerblue;
   font-size: 50px;
   position: relative;
   right: 33px;
   bottom: 13px;
 
+}
+.playersText{
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  text-align: center;
+
+}
+.divider{
+  height: 1%;
+  background-color: black;
+}
+.backIcon{
+  top:6px;
+  padding-right: 5px;
+  position: relative;
+  font-size:30px ;
 }

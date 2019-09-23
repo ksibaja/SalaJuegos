@@ -1,7 +1,9 @@
 <nav class="navbar navbar-bg justify-content-between">
     <a class="navbar-brand">
-        <h5 class="navbar-txt-color">Memoria | <a style="color: white" routerLink="/sala">SalaJuegos</a>
+        <h5 class="navbar-txt-color"> <i class="material-icons backIcon" routerLink="/sala">arrow_back</i> <a style="color: white" routerLink="/sala">SalaJuegos</a>
+          <a style="color: white;text-align: center;" >Memoria</a>
         </h5>
+
     </a>
 </nav>
 
@@ -12,12 +14,13 @@
     <div class="letraCentrada">
       <h1 ><strong class="marco">Tablero</strong></h1>
     </div>
-    <div class="container tablero" >
+    <div class="container tablero "  >
       <div class="container">
-        <div class="row clearfix">
-          <div *ngFor="let carta of cartas; index as i"><!--6x6-->
+        <div class="row clearfix ">
+          <div *ngFor="let carta of cartas; index as i" >
             <div [ngClass]="{'spacesInCard1':this.tamano == '4x4','spacesInCard2':this.tamano == '5x5','spacesInCard3':this.tamano == '6x6'}" >
-              <img [ngClass]="{'img-size1':this.tamano == '4x4','img-size2':this.tamano == '5x5','img-size3':this.tamano == '6x6'}" src="{{carta.volteada ? getImage(carta.imagen) : imagenCarta}}" (click)="selectedCard(i)">
+              <img *ngIf="myTurn" [ngClass]="{'img-size1':this.tamano == '4x4','img-size2':this.tamano == '5x5','img-size3':this.tamano == '6x6'}" src="{{carta.volteada ? getImage(carta.imagen) : imagenCarta}}" (click)="selectedCard(i)" class="imgEffect" id="card{{i}}}}">
+              <img *ngIf="!myTurn" [ngClass]="{'img-size1':this.tamano == '4x4','img-size2':this.tamano == '5x5','img-size3':this.tamano == '6x6'}" src="{{carta.volteada ? getImage(carta.imagen) : imagenCarta}}" (click)="noIsTurn()">
             </div>
           </div>
         </div>
@@ -32,6 +35,11 @@
     </div>
     <div class="container sizeChat">
       <div class="container playersOnline">
+        <p class="playersText">Jugador - {{this.jugador.length}}</p>
+        <p class="playersText">Computador - {{this.pc.length}}</p>
+
+      </div>
+      <div class="divider">
 
       </div>
       <div class="container sizePanelChat">
