@@ -1,7 +1,6 @@
 <nav class="navbar navbar-bg justify-content-between">
     <a class="navbar-brand">
-        <h5 class="navbar-txt-color"> <i class="material-icons backIcon" routerLink="/sala">arrow_back</i> <a style="color: white" routerLink="/sala">SalaJuegos</a>
-          <a style="color: white;text-align: center;" >Memoria</a>
+        <h5 class="navbar-txt-color"> <i class="material-icons backIcon" (click)="goSala()">arrow_back</i> <a style="color: white;text-align: center" routerLink="/sala" >SalaJuegos</a>
         </h5>
 
     </a>
@@ -43,7 +42,9 @@
 
       </div>
       <div class="container sizePanelChat">
-
+        <div *ngFor="let mensaje of mensajes" >
+          <p>Jugador: {{mensaje}}</p>
+        </div>
       </div>
       <div class="container">
         <div class="row clearfix"  >

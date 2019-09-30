@@ -17,17 +17,14 @@
   border-width:2px;
 }
 .imgEffect{
-  transition: 1s linear;
+  transition: 0.2s linear;
   transform-style: preserve-3d;
+
 }
 
 .imgEffect:hover{
   position: relative;
   top:-5px;
-}
-.imgEffect:active{
-  transform: rotateY(180deg);
-
 }
 .letraCentrada{
   text-align: center;
