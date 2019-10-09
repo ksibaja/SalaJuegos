@@ -15,7 +15,7 @@
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div>
                     <input class="form-control" formControlName="email" placeholder="Usuario" type="email"
-                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" #Usuario />
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="email"/>
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                         <div *ngIf="f.email.errors.required">Debe ingresar su email</div>
                         <div *ngIf="f.email.errors.email">Debe ser una email válido</div>
@@ -23,7 +23,7 @@
                 </div><br>
                 <div>
                     <input class="form-control" formControlName="password" placeholder="Contraseña" type="password"
-                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" #Contraseña/>
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="password"/>
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                         <div *ngIf="f.password.errors.required">Debe ingresar su contraseña</div>
                         <div *ngIf="f.password.errors.minlength">Contraseña debe tener minimo 6 carácteres</div>
@@ -36,7 +36,7 @@
                 </div>
             </form>
             <hr class="my-4">
-            <button class="btn btn-lg btn-facebook btn-block" (click)="submitLogin()">
+            <button class="btn btn-lg btn-facebook btn-block" (click)="authService.FacebookAuth()">
                 Iniciar con Facebook
             </button><br><br>
         </div>

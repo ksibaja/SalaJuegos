@@ -4,6 +4,15 @@
 
 export const environment = {
   production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyDKLaSFT5YNqH_f6i8eDQGKyqVyQlo1uDQ",
+    authDomain: "salajuegos-e81f0.firebaseapp.com",
+    databaseURL: "https://salajuegos-e81f0.firebaseio.com",
+    projectId: "salajuegos-e81f0",
+    storageBucket: "salajuegos-e81f0.appspot.com",
+    messagingSenderId: "310513741880",
+    appId: "1:310513741880:web:0885869a47ef87c95f76cd"
+  }
 };
 
 /*

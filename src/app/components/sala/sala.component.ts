@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { async } from '@angular/core/testing';
+import { AuthService } from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-sala',
@@ -25,7 +26,12 @@ export class SalaComponent implements OnInit {
     { cantFichas: ["3", "4", "5", "6"] }
   ]
 
-  constructor(public formBuilder: FormBuilder, private router: Router, private ngZone: NgZone) {
+  constructor(
+    public formBuilder: FormBuilder, 
+    private router: Router, 
+    private ngZone: NgZone,
+    public authService: AuthService
+    ) {
     this.gameForm = this.formBuilder.group({
       gameControl: ['N-Linea']
     });
